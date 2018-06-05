@@ -20,12 +20,10 @@ function addToCart(itemCode) {
     The POST request method requests that a web server accepts 
     the data enclosed in the body of the request message
     */
-    //Step1: Open an HTTP POST connection to the shopping cart. The servlet mapped to 
-    //the URL cart.do. "true" means the request is asynchronous
+    //The servlet mapped to cart.do. "true" means the request is asynchronous
     req.open("POST", "cart.do", true);
-    //Step2: set a heaser on the XMLHttpRequest saying that the content of the request is form-coded data.
     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    //Step3: send the request with form-encoded data as the body stating that I want to add the specided item to the cart
+    //set action to add when addtoCart method is called
     req.send("action=add&item=" + itemCode);
 }
 
@@ -34,17 +32,16 @@ function removeFromCart(itemCode) {
     var req = newXMLHttpRequest();
     //register a callback function to receive callback notifications from the request object
     req.onreadystatechange = getReadyStateHandler(req, updateCart);
-    //Step1: Open an HTTP POST connection to the shopping cart. The servlet mapped to 
-    //the URL cart.do. "true" means the request is asynchronous
+    //The servlet mapped to cart.do. "true" means the request is asynchronous
     req.open("POST", "cart.do", true);
-    //Step2: set a heaser on the XMLHttpRequest saying that the content of the request is form-coded data.
+    // the request is form-coded data.
     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    //Step3: send the request with form-encoded data as the body stating that I want to add the specided item to the cart
+    //set action to remove when removeFromCart method is called
     req.send("action=remove&item=" + itemCode);
 }
 
-/* The parameter of updateCart function is json object 
- * Update the the shopping cart presented in the web page by parsing the json object
+/* Udated the cart with json passed to the function
+ * This is called form either addToCart of removeFromCart functions
  */
 
 
@@ -54,7 +51,7 @@ function updateCart(cartJSON){
     var generated =cart.generated;
     
     if(generated > lastCartUpdate){
-        lastCartUpdate = generated;
+        lastCartUpdate = generated;// capture the json generated tag for recent updated time.
         // Clear the HTML list used to display the cart contents
         var contents = document.getElementById("contents");
         

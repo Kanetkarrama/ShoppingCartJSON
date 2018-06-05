@@ -1,7 +1,8 @@
 <%-- 
     Document   : index
     Created on : 29 May, 2018, 5:26:19 PM
-    Author     : liuziqi
+    Author     : mm6
+    ModifiedBy : rkanetka
 --%>
 
 <%@ page import="java.util.*" %>
@@ -11,11 +12,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <!-- Have the browser fetch  javascript file photonTracker.js. -->
         <script type="text/javascript" language="javascript" src="ajax1.js"></script>
         <script type="text/javascript" language="javascript" src="cart.js"></script>
         <%-- To load javascript filr to initiate handshake--%>
         <script src="jquery.js"></script>
     </head>
+        <!-- Whenever the page is loaded (on refresh) the latest value of cart will be displayed. -->
         <body onload="addToCart(0)">
         
         <div style="float: left; width: 500px">

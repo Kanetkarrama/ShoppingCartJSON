@@ -36,11 +36,9 @@ public class CartServlet extends HttpServlet {
 
             }
         }
-        //To serilize the Cart state to XML
-        //String cartXml = cart.toXml();
-        
+        // get cart value in a json string format        
         String cartJson = cart.toJSON();
-      
+      // set content type for json
         res.setContentType("application/json");
              
         //To write JSON to response
@@ -50,7 +48,7 @@ public class CartServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws java.io.IOException {
         // Bounce to post, for debugging use
-        // Hit this servlet directly from the browser to see XML
+        // Hit this servlet directly from the browser to see Json
         doPost(req, res);
     }
 
@@ -60,7 +58,7 @@ public class CartServlet extends HttpServlet {
 
         HttpSession session = req.getSession(true);
         Cart cart = (Cart) session.getAttribute("cart");
-
+        // create a new cart if not already present i.e cart does not contain any values from the contents
         if (cart == null) {
             cart = new Cart();
             session.setAttribute("cart", cart);

@@ -3,6 +3,10 @@ package developerworks.ajax.store;
 
 import java.math.BigDecimal;
 
+/**
+ * This is an item class which stores code, name, description and price for each item
+ * This is item code from mccarthy article.
+ */
 public class Item {
   private String code;
   private String name;

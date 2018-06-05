@@ -2,6 +2,10 @@ package developerworks.ajax.store;
 
 import java.util.*;
 
+/**
+ * This is the catalog class which display all the catalog items from which we can select item to add into out cart
+ * This is catalog code from mccarthy article.
+ */
 public class Catalog {
 
     private static Map<String, Item> items;
@@ -15,6 +19,7 @@ public class Catalog {
         items.put("str001", new Item("str001", "String", "Metric tonne of bailing twine", 1999));
         items.put("qua001", new Item("qua001", "Quark", "Everyone's favorite sub-atomic particle", 49));
         items.put("tab001",new Item("tab001","Table","Sturdy and elegant Coffee table", 10099));
+        //added extra item in the catalog
     }
 
     //Returns a Collection view of the values contained in this map
